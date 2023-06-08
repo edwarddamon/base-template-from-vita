@@ -1,0 +1,47 @@
+# demo yml
+server:
+  port: 8888
+
+spring:
+  application:
+    name: cyber-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        namespace: cyber-dev
+        group: dev
+    gateway:
+      routes:
+        - id: cyber-api
+          uri: lb://cyber-api
+          predicates:
+            - Path=/api/**
+          filters:
+            # 转发后路径去掉 /api
+            - StripPrefix=1
+        - id: cyber-auth-center
+          uri: lb://cyber-auth-center
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+# 接口文档配置
+knife4j:
+  gateway:
+    enabled: true
+    routes:
+      - name: 对外统一服务
+        url: /api/v2/api-docs?group=default
+        service-name: cyber-api
+      - name: 认证中心服务
+        url: /auth/v2/api-docs?group=default
+        service-name: cyber-auth-center
+
+# 日志级别
+logging:
+  level:
+    root: debug

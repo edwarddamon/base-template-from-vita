@@ -1,0 +1,27 @@
+server:
+  port: 8033
+
+spring:
+  application:
+    name: cyber-auth-center
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        namespace: cyber-dev
+        group: dev
+
+# 接口文档配置
+knife4j:
+  enable: true
+  basic:
+    enable: true
+    username: cyber
+    password: cyber
+
+# 日志级别
+logging:
+  level:
+    root: debug
