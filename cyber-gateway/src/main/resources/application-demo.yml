@@ -1,6 +1,8 @@
 # demo yml
 server:
   port: 8888
+  servlet:
+    context-path: /
 
 spring:
   application:
