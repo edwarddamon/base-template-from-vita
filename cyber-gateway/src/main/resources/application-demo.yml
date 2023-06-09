@@ -36,10 +36,10 @@ knife4j:
   gateway:
     enabled: true
     routes:
-      - name: 对外统一服务
+      - name: cyber-api # 中文部署后乱码
         url: /api/v2/api-docs?group=default
         service-name: cyber-api
-      - name: 认证中心服务
+      - name: cyber-auth-center
         url: /auth/v2/api-docs?group=default
         service-name: cyber-auth-center
 
