@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: vita-gateway
+  cloud:
+    nacos:
+      config:
+        username: nacos
+        password: nacos
+        namespace: vita-dev
+        group: dev
+        file-extension: yml
+      server-addr: 127.0.0.1:8848

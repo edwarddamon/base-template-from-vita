@@ -1,8 +1,8 @@
 version: "3"
 services:
-  cyber-gateway:
-    image: xxxxx/cyber-gateway:1.0.0
-    container_name: cyber-gateway
+  vita-gateway:
+    image: xxxxx/vita-gateway:1.0.0
+    container_name: vita-gateway
     restart: always
     ports:
       - "8888:8888"
@@ -10,16 +10,16 @@ services:
       - JAVA_OPTS=-Xms256m -Xmx512m
       - ACTIVE_PROFILE=test
     volumes:
-      - /opt/cyber/logs:/opt/cyber/logs/
+      - /opt/vita/logs:/opt/vita/logs/
     logging:
       driver: "json-file" # 默认的文件日志驱动
       options:
         max-size: "50m"
         max-file: "1"
 
-  cyber-auth-center:
-    image: xxxxx/cyber-auth-center:1.0.0
-    container_name: cyber-auth-center
+  vita-auth-center:
+    image: xxxxx/vita-auth-center:1.0.0
+    container_name: vita-auth-center
     restart: always
     ports:
       - "8033:8033"
@@ -27,16 +27,16 @@ services:
       - JAVA_OPTS=-Xms256m -Xmx512m
       - ACTIVE_PROFILE=test
     volumes:
-      - /opt/cyber/logs:/opt/cyber/logs/
+      - /opt/vita/logs:/opt/vita/logs/
     logging:
       driver: "json-file"
       options:
         max-size: "50m"
         max-file: "1"
 
-  cyber-api:
-    image: xxxxx/cyber-api:1.0.0
-    container_name: cyber-api
+  vita-api:
+    image: xxxxx/vita-api:1.0.0
+    container_name: vita-api
     restart: always
     ports:
       - "8023:8023"
@@ -44,7 +44,7 @@ services:
       - JAVA_OPTS=-Xms256m -Xmx512m
       - ACTIVE_PROFILE=test
     volumes:
-      - /opt/cyber/logs:/opt/cyber/logs/
+      - /opt/vita/logs:/opt/vita/logs/
     logging:
       driver: "json-file"
       options:

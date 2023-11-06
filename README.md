@@ -1,14 +1,15 @@
-# cyber
-> 基础架构模板
+# vita
+> vita 拉丁语：生命
 
 # 项目介绍
+> 项目描述： 个人生活项目
 
 # 项目模块树形图
 ├── README.md   
-├── cyber-api   // 外部交互服务   
-├── cyber-auth-center   // 认证中心服务   
-├── cyber-common    // 公共包（包含全局异常等SPI注入处理）  
-├── cyber-gateway   // 网关服务     
+├── vita-api   // 外部交互服务   
+├── vita-auth-center   // 认证中心服务   
+├── vita-common    // 公共包（包含全局异常等SPI注入处理）  
+├── vita-gateway   // 网关服务     
 ├── docker-compose.yml  
 └── pom.xml
 

@@ -1,0 +1,49 @@
+# demo yml
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: vita-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        namespace: vita-dev
+        group: dev
+    gateway:
+      routes:
+        - id: vita-api
+          uri: lb://vita-api
+          predicates:
+            - Path=/api/**
+          filters:
+            # 转发后路径去掉 /api
+            - StripPrefix=1
+        - id: vita-auth-center
+          uri: lb://vita-auth-center
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+# 接口文档配置
+knife4j:
+  gateway:
+    enabled: true
+    routes:
+      - name: 外部交互微服务
+        url: /api/v2/api-docs?group=default
+        service-name: vita-api
+      - name: 认证中心微服务
+        url: /auth/v2/api-docs?group=default
+        service-name: vita-auth-center
+
+# 日志级别
+logging:
+  level:
+    root: debug

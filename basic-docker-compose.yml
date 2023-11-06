@@ -1,0 +1,13 @@
+redis_5.0:
+  image: redis:5.0
+  container_name: redis_5.0
+  restart: on-failure
+  environment:
+    - TZ=Asia/Shanghai
+  volumes:
+    - /opt/redis/data:/data
+    - /opt/redis/conf/redis.conf:/etc/redis/redis.conf
+  ports:
+    - "6389:6379"
+  command: /bin/sh -c "redis-server /etc/redis/redis.conf --requirepass redis_edward"
+  privileged: true # 使用该参数，container内的root拥有真正的root权限。否则，container内的root只是外部的一个普通用户权限
