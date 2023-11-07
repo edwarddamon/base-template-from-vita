@@ -26,7 +26,7 @@
 
     <!-- 指定相关版本 -->
     <properties>
-        <reversion>1.0</reversion>
+        <reversion>1.0.0</reversion>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,6 +37,7 @@
         <mysql.version>8.0.13</mysql.version>
         <knife4j.version>4.2.0</knife4j.version>
         <hutool.version>5.8.18</hutool.version>
+        <apache.common.version>3.12.0</apache.common.version>
     </properties>
 
     <!-- 子模块继承之后，提供作用：锁定版本+子module不用写groupId和version  -->
@@ -87,6 +88,12 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.common.version}</version>
             </dependency>
 
         </dependencies>
