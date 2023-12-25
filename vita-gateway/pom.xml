@@ -25,10 +25,6 @@
                     <groupId>com.github.xiaoymin</groupId>
                     <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
                 </exclusion>
-                <exclusion>
-                    <groupId>cn.hutool</groupId>
-                    <artifactId>hutool-all</artifactId>
-                </exclusion>
             </exclusions>
         </dependency>
 

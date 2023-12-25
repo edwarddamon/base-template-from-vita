@@ -27,6 +27,7 @@ public class HealthController {
     @ApiOperation(value = "健康检查接口")
     @GetMapping(value = "/check")
     public Result<String> healthCheck() {
+        log.info("健康检查 >>>>>> {}{}", serviceName, HEALTHY_MESSAGE);
         return Result.success(StrUtil.builder(serviceName, HEALTHY_MESSAGE).toString());
     }
 
