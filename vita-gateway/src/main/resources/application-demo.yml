@@ -1,6 +1,6 @@
 # demo yml
 server:
-  port: 8888
+  port: 8001
   servlet:
     context-path: /
 
@@ -37,11 +37,13 @@ knife4j:
     enabled: true
     routes:
       - name: 外部交互微服务
-        url: /api/v2/api-docs?group=default
+        url: /api/v3/api-docs?group=default
         service-name: vita-api
+        context-path: /api
       - name: 认证中心微服务
-        url: /auth/v2/api-docs?group=default
+        url: /auth/v3/api-docs?group=default
         service-name: vita-auth-center
+        context-path: /auth
 
 # 日志级别
 logging:

@@ -23,7 +23,7 @@
                 </exclusion>
                 <exclusion>
                     <groupId>com.github.xiaoymin</groupId>
-                    <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+                    <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
