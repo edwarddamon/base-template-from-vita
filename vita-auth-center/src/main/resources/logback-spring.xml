@@ -46,29 +46,8 @@
         </filter>
     </appender>
 
-    <appender name="FILE_WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/${LOG_NAME}_warn.log</file>
-        <append>true</append>
-        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/backup/warn/${LOG_NAME}_%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>${FILE_SIZE}</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
-        <!-- 日志文件的格式 -->
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${LOG_PATTERN}</pattern>
-        </encoder>
-        <!-- 此日志文件只记录 warn 级别的 -->
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>warn</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
-
-    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--记录所有级别的日志，日志级别取决于配置-->
+    <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文件的路径及文件名 -->
         <file>${LOG_PATH}/${LOG_NAME}_info.log</file>
         <append>true</append>
@@ -83,12 +62,6 @@
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${LOG_PATTERN}</pattern>
         </encoder>
-        <!-- 此日志文件只记录 info 级别的 -->
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>info</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
     </appender>
 
     <!-- 开发环境: 打印控制台 -->
@@ -101,8 +74,7 @@
     <springProfile name="test,prod">
         <root level="${logging.level.root}">
             <appender-ref ref="CONSOLE"/>
-            <appender-ref ref="FILE_INFO"/>
-            <appender-ref ref="FILE_WARN"/>
+            <appender-ref ref="FILE_ALL"/>
             <appender-ref ref="FILE_ERROR"/>
         </root>
     </springProfile>
