@@ -12,4 +12,9 @@ public class CommonConstant {
      * 链路跟踪 ID
      */
     public static final String TRACE_ID = "traceId";
+
+    /**
+     * 分号
+     */
+    public static final String SEMICOLON = ";";
 }
